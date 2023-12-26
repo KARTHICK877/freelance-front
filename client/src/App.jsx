@@ -11,14 +11,14 @@ function App() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/items')
+    fetch('https://freelance-fronted.onrender.com/api/items')
       .then((res) => res.json())
       .then((data) => setItems(data))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
   const addItem = (newItem) => {
-    fetch('http://localhost:5000/api/items', {
+    fetch('https://freelance-fronted.onrender.com/api/items', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ function App() {
   };
 
   const deleteItem = (itemId) => {
-    fetch(`http://localhost:5000/api/items/${itemId}`, {
+    fetch(`https://freelance-fronted.onrender.com/api/items/${itemId}`, {
       method: 'DELETE',
     })
       .then(() => setItems(items.filter((item) => item._id !== itemId)))
@@ -39,7 +39,7 @@ function App() {
   };
 
   const editItem = (editedItem) => {
-    fetch(`http://localhost:5000/api/items/${editedItem._id}`, {
+    fetch(`https://freelance-fronted.onrender.com/api/items/${editedItem._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="App">
         <video src="./video/diss.mp4" autoPlay loop muted></video>
-      <h1 style={{fontFamily:'Lilita One, sans-serif Noto Sans JP, sans-serif;' , color:"red" , border:"solid 5px",borderColor:"black",width:"17%"}}>MERN Stack App</h1>
+      <h1 style={{fontFamily:'Lilita One, sans-serif Noto Sans JP, sans-serif;' , color:"red" , border:"solid 5px",borderColor:"black",width:"18%"}}>MERN Stack App</h1>
 
       <AddItemForm onAdd={addItem} />
 
